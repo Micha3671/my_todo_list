@@ -11,15 +11,15 @@ const Login = () => {
     <div>
       <h2>Login</h2>
       <form>
-        <input type="text" placeholder="Benutzername" />
-        <input type="password" placeholder="Passwort" />
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
         <label>
           <input
             type="checkbox"
             checked={rememberMe}
             onChange={handleCheckboxChange}
           />
-          Eingeloggt bleiben
+          Stay logged in
         </label>
         <button type="submit">Login</button>
       </form>
