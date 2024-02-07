@@ -1,17 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import App from "./App";
+import Login from "./Login";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const AppRouter = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<LoginWithDelay />} />
+      </Routes>
+    </Router>
+  );
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const LoginWithDelay = () => {
+  const [shouldRenderLogin, setShouldRenderLogin] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldRenderLogin(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return shouldRenderLogin ? <Login /> : <div>Loading...</div>;
+};
+
+ReactDOM.render(<AppRouter />, document.getElementById("root"));

@@ -14,13 +14,13 @@ function Navbar() {
         <div className={styles.right}>
           <ul className={styles.menu}>
             <li className={styles.item}>
-              <a href="/anmelden" className={styles.link}>
-                <button className={styles["menu-button"]}>Anmelden</button>
+              <a href="/login" className={styles.link}>
+                <button className={styles["menu-button"]}>Login</button>
               </a>
             </li>
             <li className={styles.item}>
-              <a href="/registrieren" className={styles.link}>
-                <button className={styles["menu-button"]}>Registrieren</button>
+              <a href="/register" className={styles.link}>
+                <button className={styles["menu-button"]}>Register</button>
               </a>
             </li>
           </ul>
